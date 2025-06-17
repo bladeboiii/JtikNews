@@ -107,3 +107,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ```
+
+## Teknologi yang Digunakan
+
+- **Bahasa Pemrograman**: PHP
+- **Database**: MySQL
+- **Frontend**: HTML, CSS
+- **Server Lokal**: XAMPP/WAMP
+
+## Catatan Keamanan
+
+- Pastikan untuk memvalidasi dan membersihkan input pengguna untuk mencegah serangan SQL Injection.
+- Gunakan hashing untuk menyimpan password admin (lihat `hash.php`).
+
+## Kolaborasi
+
+Jika Anda ingin berkontribusi pada proyek ini, ikuti langkah-langkah berikut:
+
+1. Fork repositori ini.
+2. Buat branch baru untuk fitur atau perbaikan Anda: `git checkout -b fitur-baru`.
+3. Commit perubahan Anda: `git commit -m "Menambahkan fitur baru"`.
+4. Push ke branch Anda: `git push origin fitur-baru`.
+5. Buat pull request ke repositori utama.
