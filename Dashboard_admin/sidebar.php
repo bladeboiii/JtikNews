@@ -14,7 +14,7 @@
   <a href="admin.php" class="nav-link <?= $current_page == 'admin.php' ? 'active' : '' ?>">
     <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
   </a>
-  <a href="berita.php" class="nav-link <?= $current_page == 'berita.php' ? 'active' : '' ?>">
+  <a href="berita2.php" class="nav-link <?= $current_page == 'berita.php' ? 'active' : '' ?>">
     <i class="fas fa-newspaper"></i> <span>Berita</span>
   </a>
   <a href="Beasiswa.php" class="nav-link <?= $current_page == 'Beasiswa.php' ? 'active' : '' ?>">
