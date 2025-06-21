@@ -25,22 +25,25 @@ Berikut adalah struktur direktori utama dalam proyek ini:
 ## ⚙️ Fitur Utama
 
 ### ✅ 1. Halaman Publik
+
 - Beranda dengan slider berita & highlight berita
 - Daftar berita dan beasiswa terbaru
 - Detail berita dan beasiswa
 - Tampilan responsif dan estetis
 
 ### 🔐 2. Dashboard Admin
+
 - Login otentikasi admin
 - CRUD **berita**:
   - Tambah, edit, hapus
-  - Set berita sebagai *highlight*
+  - Set berita sebagai _highlight_
 - CRUD **beasiswa**:
   - Tambah, edit, hapus
   - Kelola tanggal mulai & deadline
 - Upload gambar berita & beasiswa
 
 ### 🔎 3. Fitur Pencarian
+
 - Cari berita atau beasiswa berdasarkan kata kunci
 
 ---
@@ -48,11 +51,14 @@ Berikut adalah struktur direktori utama dalam proyek ini:
 ## 🛠️ Cara Menjalankan Proyek
 
 ### 1. **Setup Database**
+
 - Import file `web_jurusan.sql` ke MySQL via phpMyAdmin
 - Pastikan database name sesuai dengan yang digunakan di `koneksi.php`
 
 ### 2. **Konfigurasi Database**
+
 Ubah isi `koneksi.php`:
+
 ```php
 $host = "localhost"; // atau host dari InfinityFree
 $user = "USERNAME_DATABASE";
@@ -60,7 +66,7 @@ $password = "PASSWORD_DATABASE";
 $db_name = "NAMA_DATABASE";
 
 $koneksi = new mysqli($host, $user, $password, $db_name);
-````
+```
 
 Menjalankan Lokal
 Letakkan folder ini di htdocs (jika menggunakan XAMPP).
@@ -74,6 +80,7 @@ Jika form disubmit, perbarui data di database.
 Jika ada gambar baru, simpan ke folder uploads dan update gambar di database.
 Redirect kembali ke halaman beasiswa.
 Contoh kode utama:
+
 ```php
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -97,15 +104,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ```
+
 ## 💡 Teknologi yang Digunakan
 
-| Teknologi           | Keterangan                         |
-|---------------------|-------------------------------------|
-| PHP                 | Bahasa utama backend                |
-| MySQL               | Basis data untuk menyimpan data     |
-| HTML5, CSS3         | Tampilan antarmuka                  |
-| Bootstrap 5         | Framework responsif modern          |
-| XAMPP/InfinityFree  | Server lokal & deployment online    |
+| Teknologi          | Keterangan                       |
+| ------------------ | -------------------------------- |
+| PHP                | Bahasa utama backend             |
+| MySQL              | Basis data untuk menyimpan data  |
+| HTML5, CSS3        | Tampilan antarmuka               |
+| Bootstrap 5        | Framework responsif modern       |
+| XAMPP/InfinityFree | Server lokal & deployment online |
 
 ---
 
