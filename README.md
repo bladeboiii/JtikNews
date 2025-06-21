@@ -1,90 +1,81 @@
-# Sistem Informasi Mahasiswa, Berita, dan Beasiswa
+# 🌐 Sistem Informasi Jurusan TIK (Mahasiswa, Berita & Beasiswa)
 
-Proyek ini adalah sebuah sistem informasi berbasis web yang dirancang untuk mengelola data mahasiswa, berita, dan beasiswa. Sistem ini memungkinkan admin untuk mengelola data dengan mudah melalui antarmuka berbasis web, serta menyediakan informasi yang relevan kepada pengguna.
+Proyek ini merupakan aplikasi berbasis web yang dikembangkan untuk mengelola dan menyajikan informasi seputar **berita**, **beasiswa**, dan **profil jurusan**. Aplikasi ini memiliki dua sisi: tampilan **publik** untuk pengunjung dan **dashboard admin** untuk pengelola konten.
 
-## Struktur Proyek
+---
 
-Berikut adalah struktur direktori proyek ini:
+## 📁 Struktur Proyek
 
-### Penjelasan Folder dan File
+Berikut adalah struktur direktori utama dalam proyek ini:
 
-- **admin/**: Berisi file untuk autentikasi admin, seperti `login.php` dan `hash.php`.
-- **Dashboard_admin/**: Berisi file untuk halaman dashboard admin, termasuk pengelolaan data mahasiswa, beasiswa, berita, dan fitur lainnya.
-- **css/**: Berisi file CSS untuk styling halaman.
-- **img/**: Berisi gambar-gambar yang digunakan dalam proyek.
-- **uploads/**: Folder untuk menyimpan file yang diunggah, seperti gambar beasiswa atau berita.
-- **koneksi.php**: File untuk mengatur koneksi ke database.
-- **index.php**: Halaman utama dari sistem.
-- **search.php**: File untuk fitur pencarian.
+- `admin/` — Halaman login dan fungsi otentikasi admin (`login.php`, `hash.php`).
+- `Dashboard_admin/` — Halaman dashboard untuk admin, mencakup manajemen:
+  - Berita (`berita2.php`, `input_berita.php`, `edit_berita.php`, dll)
+  - Beasiswa (`Beasiswa.php`, `input_beasiswa.php`, `edit_beasiswa.php`)
+- `css/` — File CSS frontend (`style.css`)
+- `img/` — Aset gambar statis
+- `uploads/` — Folder upload gambar berita dan beasiswa
+- `index.php` — Halaman utama publik
+- `search.php` — Fitur pencarian berita dan beasiswa
+- `koneksi.php` — Koneksi ke database
+- `navbar.php`, `footer.php` — Komponen tampilan frontend
 
-## Fitur Utama
+---
 
-1. **Manajemen Mahasiswa**
+## ⚙️ Fitur Utama
 
-   - Tambah, edit, dan hapus data mahasiswa.
-   - Menampilkan informasi mahasiswa secara terstruktur.
+### ✅ 1. Halaman Publik
+- Beranda dengan slider berita & highlight berita
+- Daftar berita dan beasiswa terbaru
+- Detail berita dan beasiswa
+- Tampilan responsif dan estetis
 
-2. **Manajemen Beasiswa**
+### 🔐 2. Dashboard Admin
+- Login otentikasi admin
+- CRUD **berita**:
+  - Tambah, edit, hapus
+  - Set berita sebagai *highlight*
+- CRUD **beasiswa**:
+  - Tambah, edit, hapus
+  - Kelola tanggal mulai & deadline
+- Upload gambar berita & beasiswa
 
-   - Tambah, edit, dan hapus data beasiswa.
-   - Unggah gambar untuk setiap
+### 🔎 3. Fitur Pencarian
+- Cari berita atau beasiswa berdasarkan kata kunci
 
-3. **Manajemen Berita**
+---
 
-   - Tambah, edit, dan hapus berita.
-   - Fitur untuk menyorot berita tertentu.
+## 🛠️ Cara Menjalankan Proyek
 
-4. **Autentikasi Admin**
+### 1. **Setup Database**
+- Import file `web_jurusan.sql` ke MySQL via phpMyAdmin
+- Pastikan database name sesuai dengan yang digunakan di `koneksi.php`
 
-   - Login untuk admin dengan validasi.
-
-5. **Pencarian**
-   - Fitur pencarian untuk mempermudah pengguna menemukan informasi.
-
-## Cara Menjalankan Proyek
-
-1. **Persiapan**
-
-   - Pastikan Anda memiliki server lokal seperti XAMPP atau WAMP.
-   - Buat database dan impor file SQL yang sesuai (jika ada).
-
-2. **Konfigurasi**
-
-   - Perbarui file `koneksi.php` dengan kredensial database Anda:
-     ```php
-     $koneksi = new mysqli("localhost", "username", "password", "nama_database");
-     ```
-
-3. **Menjalankan**
-   - Letakkan folder proyek di direktori `htdocs` (untuk XAMPP).
-   - Akses proyek melalui browser, misalnya: `http://localhost/nama_proyek`.
-
-## Penjelasan File Utama
-
-### `edit_beasiswa.php`
-
-File ini digunakan untuk mengedit data beasiswa yang sudah ada. Berikut adalah langkah-langkah kerja file ini:
-
-1. **Mengambil Data Beasiswa**
-
-   - Mengambil data beasiswa berdasarkan `id` yang diterima melalui parameter `GET`.
-   - Query SQL:
-     ```sql
-     SELECT * FROM beasiswa WHERE id_beasiswa=$id
-     ```
-
-2. **Proses Pengeditan**
-
-   - Jika form dikirimkan melalui metode `POST`, data yang diinputkan akan diperbarui ke database.
-   - Jika ada file gambar yang diunggah, file tersebut akan disimpan di folder [uploads](http://_vscodecontentref_/7) dan nama file akan diperbarui di database.
-
-3. **Validasi dan Redirect**
-   - Jika query berhasil, pengguna akan diarahkan kembali ke halaman [Beasiswa.php](http://_vscodecontentref_/8).
-   - Jika gagal, pesan error akan ditampilkan.
-
-### Contoh Kode Utama
-
+### 2. **Konfigurasi Database**
+Ubah isi `koneksi.php`:
 ```php
+$host = "localhost"; // atau host dari InfinityFree
+$user = "USERNAME_DATABASE";
+$password = "PASSWORD_DATABASE";
+$db_name = "NAMA_DATABASE";
+
+$koneksi = new mysqli($host, $user, $password, $db_name);
+````
+
+Menjalankan Lokal
+Letakkan folder ini di htdocs (jika menggunakan XAMPP).
+Akses di browser: http://localhost/Website-Jurusan-TIK.
+
+Contoh Proses: Edit Beasiswa
+File: edit_beasiswa.php
+Alur:
+Ambil data beasiswa berdasarkan ID.
+Jika form disubmit, perbarui data di database.
+Jika ada gambar baru, simpan ke folder uploads dan update gambar di database.
+Redirect kembali ke halaman beasiswa.
+Contoh kode utama:
+```php
+<?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nama = $_POST['nama_beasiswa'];
     $deskripsi = $_POST['deskripsi'];
@@ -93,8 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!empty($_FILES['gambar']['name'])) {
         $gambar = $_FILES['gambar']['name'];
-        $tmp = $_FILES['gambar']['tmp_name'];
-        move_uploaded_file($tmp, "../uploads/" . $gambar);
+        move_uploaded_file($_FILES['gambar']['tmp_name'], "../uploads/" . $gambar);
         $sql = "UPDATE beasiswa SET nama_beasiswa='$nama', deskripsi='$deskripsi', syarat='$syarat', link_pendaftaran='$link', gambar='$gambar' WHERE id_beasiswa=$id";
     } else {
         $sql = "UPDATE beasiswa SET nama_beasiswa='$nama', deskripsi='$deskripsi', syarat='$syarat', link_pendaftaran='$link' WHERE id_beasiswa=$id";
@@ -107,25 +97,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ```
+Teknologi yang Digunakan
+Teknologi	Keterangan
+PHP	Bahasa utama backend
+MySQL	Basis data untuk menyimpan data
+HTML5, CSS3	Tampilan antarmuka
+Bootstrap 5	Framework responsif modern
+XAMPP/InfinityFree	Server lokal & deployment online
 
-## Teknologi yang Digunakan
+Keamanan
+Password admin disimpan menggunakan bcrypt hash.
+Input pengguna harus divalidasi untuk menghindari SQL Injection (disarankan gunakan mysqli_prepare di masa depan).
+Gambar diupload dengan nama asli – sebaiknya diberi prefix atau diubah untuk keamanan lebih baik.
 
-- **Bahasa Pemrograman**: PHP
-- **Database**: MySQL
-- **Frontend**: HTML, CSS
-- **Server Lokal**: XAMPP/WAMP
+Kolaborasi
+Fork repositori ini.
+Buat branch baru: git checkout -b fitur-anda.
+Lakukan perubahan dan commit: git commit -m "Fitur baru: tambah pencarian".
+Push branch: git push origin fitur-anda.
+Buat Pull Request ke repo utama.
 
-## Catatan Keamanan
+Kontak
+Jurusan Teknik Informatika & Komputer
+Politeknik Negeri Ujung Pandang
+📍 Jl. Perintis Kemerdekaan KM.10, Makassar
+📧 90245, Sulawesi Selatan
+📺 Profil YouTube
 
-- Pastikan untuk memvalidasi dan membersihkan input pengguna untuk mencegah serangan SQL Injection.
-- Gunakan hashing untuk menyimpan password admin (lihat `hash.php`).
-
-## Kolaborasi
-
-Jika Anda ingin berkontribusi pada proyek ini, ikuti langkah-langkah berikut:
-
-1. Fork repositori ini.
-2. Buat branch baru untuk fitur atau perbaikan Anda: `git checkout -b fitur-baru`.
-3. Commit perubahan Anda: `git commit -m "Menambahkan fitur baru"`.
-4. Push ke branch Anda: `git push origin fitur-baru`.
-5. Buat pull request ke repositori utama.
+Dibuat untuk mendukung keterbukaan informasi dan layanan digital di lingkungan Jurusan TIK. 🚀 ```
