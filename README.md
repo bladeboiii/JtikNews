@@ -97,31 +97,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ```
-Teknologi yang Digunakan
-Teknologi	Keterangan
-PHP	Bahasa utama backend
-MySQL	Basis data untuk menyimpan data
-HTML5, CSS3	Tampilan antarmuka
-Bootstrap 5	Framework responsif modern
-XAMPP/InfinityFree	Server lokal & deployment online
+## 💡 Teknologi yang Digunakan
 
-Keamanan
-Password admin disimpan menggunakan bcrypt hash.
-Input pengguna harus divalidasi untuk menghindari SQL Injection (disarankan gunakan mysqli_prepare di masa depan).
-Gambar diupload dengan nama asli – sebaiknya diberi prefix atau diubah untuk keamanan lebih baik.
+| Teknologi           | Keterangan                         |
+|---------------------|-------------------------------------|
+| PHP                 | Bahasa utama backend                |
+| MySQL               | Basis data untuk menyimpan data     |
+| HTML5, CSS3         | Tampilan antarmuka                  |
+| Bootstrap 5         | Framework responsif modern          |
+| XAMPP/InfinityFree  | Server lokal & deployment online    |
 
-Kolaborasi
-Fork repositori ini.
-Buat branch baru: git checkout -b fitur-anda.
-Lakukan perubahan dan commit: git commit -m "Fitur baru: tambah pencarian".
-Push branch: git push origin fitur-anda.
-Buat Pull Request ke repo utama.
+---
 
-Kontak
-Jurusan Teknik Informatika & Komputer
-Politeknik Negeri Ujung Pandang
-📍 Jl. Perintis Kemerdekaan KM.10, Makassar
-📧 90245, Sulawesi Selatan
-📺 Profil YouTube
+## 🔒 Keamanan
 
-Dibuat untuk mendukung keterbukaan informasi dan layanan digital di lingkungan Jurusan TIK. 🚀 ```
+- Password admin disimpan menggunakan **bcrypt hash**
+- Input pengguna harus divalidasi untuk menghindari **SQL Injection** (disarankan gunakan `mysqli_prepare` di masa depan)
+- Gambar diupload dengan nama asli – sebaiknya diberi prefix atau diubah untuk keamanan lebih baik
+- Penggunaan **header("Location: ...")** untuk redirect ke halaman lain – s
