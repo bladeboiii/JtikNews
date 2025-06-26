@@ -24,11 +24,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $stmt->close();
 }
 
-// Get all news for the main listing
 $sql = "SELECT * FROM berita ORDER BY tanggal DESC";
 $result = $conn->query($sql);
 
-// Get featured news for the carousel (latest 5 articles)
 $sql_featured = "SELECT * FROM berita ORDER BY tanggal DESC LIMIT 5";
 $featured_result = $conn->query($sql_featured);
 ?>
@@ -496,8 +494,10 @@ $featured_result = $conn->query($sql_featured);
                 <span class="text-muted" style="font-size: 0.97rem;"><i class="bi bi-calendar-event"></i> <?= date('l, d F Y H:i', strtotime($single_berita['tanggal'])) ?> WIB</span>
               </div>
               <hr class="my-4" style="border-top:2px solid #f3e5e5;">
-              <div class="berita-body px-1" style="font-size: 1.13rem; line-height: 1.85; color: #232323;">
-                <?= html_entity_decode($single_berita['isi']) ?>
+              <div class="berita-body px-1" style="font-size: 1.13rem; line-height: 1.85; color: #232323; white-space: pre-line;">
+              <?= htmlspecialchars($single_berita['isi']) ?>
+              </div>
+
               </div>
             </div>
           </div>
@@ -514,7 +514,6 @@ $featured_result = $conn->query($sql_featured);
     </div>
   </header>
 
-  <!-- Konten Berita dengan UI yang ditingkatkan -->
   <div class="container-fluid py-5">
     <div class="content-wrapper">
       <h2 class="section-title">Artikel & Berita</h2>
@@ -527,7 +526,6 @@ $featured_result = $conn->query($sql_featured);
       <?php if ($result && $result->num_rows > 0): ?>
         <div class="row">
           <?php 
-          // Reset the result pointer to the beginning
           $result->data_seek(0);
           while ($row = $result->fetch_assoc()): 
           ?>
